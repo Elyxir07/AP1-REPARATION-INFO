@@ -1,0 +1,63 @@
+.accueil
+{
+    display: grid;
+    grid-template:
+        "t i1"
+        "i2 d"
+        "f f";
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.accueil-titre
+{
+    grid-area: t;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.accueil-i1
+{
+    grid-area: i1;
+}
+
+.accueil-i1 img
+{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.accueil-i2
+{
+    grid-area: i2;
+}
+
+.accueil-i2 img
+{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.accueil-description
+{
+    grid-area: d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.accueil-footer
+{
+    grid-area: f;
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+}
