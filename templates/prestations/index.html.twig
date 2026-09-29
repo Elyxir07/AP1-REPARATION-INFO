@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PrestationsController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/eliot/work/github/AP1-REPARATION-INFO/src/Controller/PrestationsController.php</code></li>
-        <li>Your template at <code>C:/Users/eliot/work/github/AP1-REPARATION-INFO/templates/prestations/index.html.twig</code></li>
-    </ul>
+<br/>
+<div class="prestations">
+    <div class="prestations-i1">
+        <img src="{{ asset('/img/prestations/prestations-i1.svg') }}"/>
+    </div>
+    <div class="prestations-texte">
+        <h2><b>Une maintenance complète</b></h2>
+        <h2><b>De votre parc informatique</b></h2>
+        <br/>
+        <h4>Nous nous engageons à maintenir votre parc informatique</h4>
+        <h4>en parfait état de fonctionnement, quel que soit votre matériel,</h4>
+        <h4>avec une prise en charge complète :</h4>
+        <h4>pièces, main-d’œuvre et déplacement inclus.</h4>
+        <br/>
+        <a href="{{ path('app_creation_demande') }}"><button type="button" class="btn btn-primary btn-lg"><b>Demander une prestation</b></button></a>
+    </div>
+    <footer class="accueil-footer">Site réalisé par Comeleon | Site internet CMS & sur mesure</footer>
 </div>
 {% endblock %}

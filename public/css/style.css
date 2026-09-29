@@ -7,7 +7,7 @@
         "f f";
 
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) / 10%;
 }
 
 .accueil-titre
@@ -55,6 +55,50 @@
 }
 
 .accueil-footer
+{
+    grid-area: f;
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+}
+
+.prestations
+{
+    display: grid;
+    grid-template:
+        "i1 t"
+        "f f";
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr / 10%;
+}
+
+.prestations-texte
+{
+    grid-area: t;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.prestations-i1
+{
+    grid-area: i1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prestations-i1 img
+{
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.prestations-footer
 {
     grid-area: f;
     background-color: lightgray;
