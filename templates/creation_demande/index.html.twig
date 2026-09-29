@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<br/>
+<div class="creationDemande">
+    <div class="creationDemande-titre">
+        <h1><b>Quelle prestation souhaitez-vous effectuer ?</b></h1>
+    </div>
+    <div>
+      <label for="exampleSelect1" class="form-label mt-4">Prestation</label>
+      <select class="form-select" id="exampleDisabledSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div>
+      <label for="exampleInputEmail1" class="form-label mt-4">Raison</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="J'ai besoin de...">
+    </div>
+    <div>
+      <label for="exampleTextarea" class="form-label mt-4">Commentaire</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Avec tel matériel spécifique..."></textarea>
+    </div>
+</div>
+<footer class="creationDemande-footer">Site réalisé par Comeleon | Site internet CMS & sur mesure</footer>
+{% endblock %}

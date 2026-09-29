@@ -1,3 +1,14 @@
+.nav-row
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-red
+{
+    color: red;
+}
+
 .accueil
 {
     display: grid;
@@ -99,6 +110,30 @@
 }
 
 .prestations-footer
+{
+    grid-area: f;
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+}
+
+.creationDemande
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: black;
+    color: white;
+}
+
+.creationDemande h1
+{
+    color: white;
+}
+
+.creationDemande-footer
 {
     grid-area: f;
     background-color: lightgray;
