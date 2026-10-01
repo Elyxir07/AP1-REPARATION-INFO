@@ -140,3 +140,30 @@
     padding: 2rem;
     text-align: center;
 }
+
+@media (max-width: 800px)
+{
+    .accueil
+    {
+        grid-template:
+            "t"
+            "i1"
+            "i2"
+            "d"
+            "f";
+
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr) / 10%;
+    }
+
+    .prestations
+    {
+        grid-template:
+            "i1"
+            "t"
+            "f";
+
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr) / 10%;
+    }
+}
