@@ -1,0 +1,31 @@
+.espace-client-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(250px, 33%));
+    grid-auto-rows: auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.espace-Client-card {
+    
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #dcdbdb;
+    border-radius: 50px;
+}
+
+.espace-Client-card-body {
+    padding: 10px;
+}
+
+.espace-Client-card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.espace-Client-card-text {
+    font-size: 1em;
+    color: #666;
+}
