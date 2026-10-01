@@ -1,0 +1,142 @@
+.nav-row
+{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.nav-red
+{
+    color: red;
+}
+
+.accueil
+{
+    display: grid;
+    grid-template:
+        "t i1"
+        "i2 d"
+        "f f";
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) / 10%;
+}
+
+.accueil-titre
+{
+    grid-area: t;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.accueil-i1
+{
+    grid-area: i1;
+}
+
+.accueil-i1 img
+{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.accueil-i2
+{
+    grid-area: i2;
+}
+
+.accueil-i2 img
+{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.accueil-description
+{
+    grid-area: d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.accueil-footer
+{
+    grid-area: f;
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+}
+
+.prestations
+{
+    display: grid;
+    grid-template:
+        "i1 t"
+        "f f";
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr / 10%;
+}
+
+.prestations-texte
+{
+    grid-area: t;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.prestations-i1
+{
+    grid-area: i1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prestations-i1 img
+{
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.prestations-footer
+{
+    grid-area: f;
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+}
+
+.creationDemande
+{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    background-color: black;
+    color: white;
+}
+
+.creationDemande h1
+{
+    text-align: center;
+    color: white;
+}
+
+.creationDemande-footer
+{
+    grid-area: f;
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+}

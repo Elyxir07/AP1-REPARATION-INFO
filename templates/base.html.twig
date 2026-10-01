@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}REFI{% endblock %}</title>
-        <link rel="icon" href="/icon/refi.png">
+        <link rel="icon" href="/img/icon/refi.png">
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/style.css">
         {% block stylesheets %}
@@ -22,19 +22,19 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Refi</a>
+            <a class="navbar-brand" href="#"><span class="text-danger">R</span>efi</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <a class="nav-link active" href="#">Accueil
+                <a class="nav-link active" href="{{ path('app_accueil') }}">Accueil
                     <span class="visually-hidden">(current)</span>
                 </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Prestations</a>
+                <a class="nav-link" href="{{ path('app_prestations') }}">Prestations</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">Espace client</a>
