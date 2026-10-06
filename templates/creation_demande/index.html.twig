@@ -2,27 +2,98 @@
 
 {% block body %}
 <div class="creationDemande">
+  <form>
     <div class="creationDemande-titre">
-        <h1><b>Quelle prestation souhaitez-vous effectuer ?</b></h1>
+      <h1><b>Quelle(s) prestation(s) souhaitez-vous effectuer ?</b></h1>
     </div>
+
     <div>
-      <label for="exampleSelect1" class="form-label mt-4">Prestation</label>
-      <select class="form-select" id="exampleDisabledSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <label for="prestation-select" class="form-label mt-4">Prestation</label>
+      <select class="form-select" id="prestation-select">
+        <option value="" selected disabled>Sélectionnez une prestation</option>
+        {% for prestation in prestations %}
+          <option value={{ prestation.reference }}>{{ prestation.nom }}</option>
+        {% endfor %}
       </select>
     </div>
+
+    <!-- Zone où s'affichent les prestations sélectionnées -->
+    <div id="prestations-container"></div>
+
+    <!-- Inputs cachés qui seront envoyés lors de la soumission du formulaire -->
+    <div id="hidden-inputs"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('prestation-select');
+        const container = document.getElementById('prestations-container');
+        const hiddenContainer = document.getElementById('hidden-inputs');
+
+        // Stocke les IDs déjà sélectionnés pour éviter les doublons
+        const selectedIds = new Set();
+
+        select.addEventListener('change', (e) => {
+            const selectedOption = select.options[select.selectedIndex];
+            const id = selectedOption.value;
+            const text = selectedOption.text;
+
+            if (!id || selectedIds.has(id)) {
+                select.value = '';
+                return;
+            }
+
+            selectedIds.add(id);
+
+            // 1. Créer la ligne d'affichage avec le nom et la poubelle
+            const item = document.createElement('div');
+            item.className = 'd-flex align-items-center justify-content-between p-2 mb-2 bg-dark text-white rounded border border-secondary';
+            item.dataset.id = id;
+            item.innerHTML = `
+                <span>${text}</span>
+                <button type="button" class="btn btn-danger remove-btn">
+                    🗑️
+                </button>
+            `;
+
+            // 2. Créer un champ caché pour que Symfony reçoive l'ID dans le POST
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'prestations[]'; // Tableau d'IDs envoyé au contrôleur
+            hiddenInput.value = id;
+            hiddenInput.id = `input-prestation-${id}`;
+
+            // 3. Ajouter au DOM
+            container.appendChild(item);
+            hiddenContainer.appendChild(hiddenInput);
+
+            // 4. Réinitialiser le <select>
+            select.value = '';
+
+            // 5. Gérer la suppression lors du clic sur la poubelle
+            item.querySelector('.remove-btn').addEventListener('click', () => {
+                selectedIds.delete(id);
+                item.remove();
+                hiddenInput.remove();
+            });
+        });
+    });
+    </script>
+
     <div>
-      <label for="exampleInputEmail1" class="form-label mt-4">Raison</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="J'ai besoin de...">
+      <label for="demande-raison" class="form-label mt-4">Raison</label>
+      <input type="text" class="form-control" id="demande-raison" placeholder="J'ai besoin de...">
     </div>
+
     <div>
-      <label for="exampleTextarea" class="form-label mt-4">Commentaire</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Avec tel matériel spécifique..."></textarea>
+      <label for="demande-commentaire" class="form-label mt-4">Commentaire</label>
+      <textarea class="form-control" id="demande-commentaire" rows="3" placeholder="Avec tel matériel spécifique..."></textarea>
     </div>
+
+    <br>
+    <div class="creationDemande-btn">
+      <button class="btn btn-success btn-lg" href="{{ path('app_creer_demande') }}"><b>Valider</b></button>
+    </div>
+  </form>
 </div>
 <footer class="creationDemande-footer">Site réalisé par Comeleon | Site internet CMS & sur mesure</footer>
 {% endblock %}

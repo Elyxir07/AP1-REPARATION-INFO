@@ -79,10 +79,11 @@
     display: grid;
     grid-template:
         "i1 t"
+        "tab tab"
         "f f";
 
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr / 10%;
+    grid-template-rows: repeat(2, 1fr) / 10%;
 }
 
 .prestations-texte
@@ -110,6 +111,11 @@
     object-fit: contain;
 }
 
+.prestations-tableau
+{
+    grid-area: tab;
+}
+
 .prestations-footer
 {
     grid-area: f;
@@ -131,6 +137,13 @@
 {
     text-align: center;
     color: white;
+}
+
+.creationDemande-btn
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .creationDemande-footer
@@ -161,9 +174,10 @@
         grid-template:
             "i1"
             "t"
+            "tab"
             "f";
 
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr) / 10%;
+        grid-template-rows: repeat(3, 1fr) / 10%;
     }
 }

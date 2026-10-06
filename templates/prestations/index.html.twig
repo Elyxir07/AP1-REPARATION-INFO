@@ -17,6 +17,26 @@
         <br/>
         <a class="btn btn-primary btn-lg" href="{{ path('app_creation_demande') }}"><b>Demander une prestation</b></a>
     </div>
+    <div class="prestations-tableau">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prix</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for prestation in prestations %}
+                    <tr class="table-dark">
+                        <th scope="row">{{ prestation.nom }}</th>
+                        <td>{{ prestation.prix }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <footer class="prestations-footer">Site réalisé par Comeleon | Site internet CMS & sur mesure</footer>
 </div>
 {% endblock %}
