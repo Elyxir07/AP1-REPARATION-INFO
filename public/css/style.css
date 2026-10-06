@@ -116,6 +116,11 @@
     grid-area: tab;
 }
 
+.prestations-tableau h1
+{
+    text-align: center;
+}
+
 .prestations-footer
 {
     grid-area: f;
