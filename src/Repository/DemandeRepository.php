@@ -40,4 +40,15 @@ class DemandeRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+// public function findByIdUtilisateur($idUtilisateur): array
+// {
+//     return $this->createQueryBuilder('u')
+//         ->andWhere('u.idUtilisateur = :idUtilisateur')
+//         ->setParameter('idUtilisateur', $idUtilisateur)
+//         ->getQuery()
+//         ->getResult()
+//     ;
+// }
+
 }

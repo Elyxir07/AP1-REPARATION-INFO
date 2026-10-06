@@ -13,7 +13,7 @@ final class EspaceClientController extends AbstractController
     public function index(): Response
     {
         $demandeRepository = $this->getDoctrine()->getRepository(Demande::class);
-        $demandes = $demandeRepository->findOneBySomeField($idClient);
+        $demandes= $demandeRepository->findByidUtilisateur($idUtilisateur);
         return $this->render('espace_client/index.html.twig', [
             'controller_name' => 'EspaceClientController',
             'demandes' => $demandes,
