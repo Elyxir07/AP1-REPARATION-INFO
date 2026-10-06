@@ -26,9 +26,23 @@ class Utiliser
         return $this->RefPresta;
     }
 
+    public function setRefPresta(?Prestation $RefPresta): static
+    {
+        $this->RefPresta = $RefPresta;
+
+        return $this;
+    }
+
     public function getRefMat(): ?Materiel
     {
         return $this->RefMat;
+    }
+
+    public function setRefMat(?Materiel $RefMat): static
+    {
+        $this->RefMat = $RefMat;
+
+        return $this;
     }
 
     public function getQuantite(): ?int

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Materiel
 {
     #[ORM\Id]
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(name: "Reference", length: 50)]
     private ?string $Reference = null;
 
     #[ORM\Column(length: 30)]
@@ -37,6 +37,13 @@ class Materiel
     public function getReference(): ?string
     {
         return $this->Reference;
+    }
+
+    public function setReference(string $Reference): static
+    {
+        $this->Reference = $Reference;
+
+        return $this;
     }
 
     public function getType(): ?string

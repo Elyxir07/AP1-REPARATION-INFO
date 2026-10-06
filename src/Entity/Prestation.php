@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Prestation
 {
     #[ORM\Id]
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(name: "Reference",length: 50)]
     private ?string $Reference = null;
 
     #[ORM\Column(length: 255)]
