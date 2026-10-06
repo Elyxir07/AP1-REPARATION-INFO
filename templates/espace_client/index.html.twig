@@ -7,23 +7,16 @@
     <p>Vous pouvez gérer vos informations personnelles, suivre vos commandes</p>
     
     <div class="espace-client-grid">
-    <div class="espace-Client-card" style= "border: 4px solid #48ff00;">
+    {% for demande in "demandes" %}
+    <div class="espace-Client-card" style= "border: 4px solid {% if demande.etat_demande == 'terminer' %}#48ff00 {% endif %} {% if demande.etat_demande == 'en_cours' %}#ffcc00 {% endif %} {% if demande.etat_demande == 'refuse' %}#ff0000 {% endif %} {% if demande.etat_demande == 'annule' %}#999999 {% endif %};">
         <div class="espace-Client-card-body">
-            <h5 class="espace-Client-card-title">"nom de la prestation demandé"</h5>
-            <p class="espace-Client-card-text">description de la prestation</p>
+            <h5 class="espace-Client-card-title">{{ demande.objet }}</h5>
+            <p class="espace-Client-card-text">{{ demande.raison }}</p>
 
-            <h5 class="espace-Client-card-title">"rapport de la prestation"</h5>
-            <p class="espace-Client-card-text">description du rapport</p>
+            <h5 class="espace-Client-card-title">Rapport :</h5>
+            <p class="espace-Client-card-text">{{ demande.commentaire }}</p>
         </div>
     </div>
-    <div class="espace-Client-card" style= "border: 4px solid #ff0000;">
-        <div class="espace-Client-card-body">
-            <h5 class="espace-Client-card-title">"nom de la prestation demandé"</h5>
-            <p class="espace-Client-card-text">description de la prestation</p>
-
-            <h5 class="espace-Client-card-title">"rapport de la prestation"</h5>
-            <p class="espace-Client-card-text">description du rapport</p>
-        </div>
-    </div>
+    {% endfor %}
     </div>
 {% endblock %}
