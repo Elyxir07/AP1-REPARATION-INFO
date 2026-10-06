@@ -45,9 +45,6 @@ class AppFixtures extends Fixture
         $utilisateur3->setMdp('admin123');
         $utilisateur3->setNom('Admin');
         $utilisateur3->setPrenom('Administrateur');
-        $utilisateur3->setRue('1 rue de la République');
-        $utilisateur3->setCp('75001');
-        $utilisateur3->setVille('Paris');
         $utilisateur3->setNumTel('0601020304');
         $utilisateur3->setType('admin');
 
