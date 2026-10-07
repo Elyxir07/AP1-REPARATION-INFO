@@ -9,9 +9,18 @@ use App\Entity\Demande;
 use App\Entity\Utiliser;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    private UserPasswordHasherInterface $passwordHasher;
+
+    // 1. Injection du service de hachage via le constructeur
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+    }
+
     public function load(ObjectManager $manager): void
     {
         // =========================
@@ -20,7 +29,8 @@ class AppFixtures extends Fixture
 
         $utilisateur1 = new Utilisateur();
         $utilisateur1->setEmail('jean.dupont@example.com');
-        $utilisateur1->setMdp('password123');
+        // 2. Utilisation du hacheur Symfony
+        $utilisateur1->setMdp($this->passwordHasher->hashPassword($utilisateur1, 'password123'));
         $utilisateur1->setNom('Dupont');
         $utilisateur1->setPrenom('Jean');
         $utilisateur1->setRue('10 rue de Paris');
@@ -31,18 +41,15 @@ class AppFixtures extends Fixture
 
         $utilisateur2 = new Utilisateur();
         $utilisateur2->setEmail('marie.martin@example.com');
-        $utilisateur2->setMdp('password123');
+        $utilisateur2->setMdp($this->passwordHasher->hashPassword($utilisateur2, 'password123'));
         $utilisateur2->setNom('Martin');
         $utilisateur2->setPrenom('Marie');
-        $utilisateur2->setRue('25 avenue Victor Hugo');
-        $utilisateur2->setCp('69001');
-        $utilisateur2->setVille('Lyon');
         $utilisateur2->setNumTel('0623456789');
         $utilisateur2->setType('client');
 
         $utilisateur3 = new Utilisateur();
         $utilisateur3->setEmail('admin@example.com');
-        $utilisateur3->setMdp('admin123');
+        $utilisateur3->setMdp($this->passwordHasher->hashPassword($utilisateur3, 'admin123'));
         $utilisateur3->setNom('Admin');
         $utilisateur3->setPrenom('Administrateur');
         $utilisateur3->setNumTel('0601020304');
