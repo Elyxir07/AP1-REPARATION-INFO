@@ -6,9 +6,13 @@ use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
-class Utilisateur
+#[UniqueEntity(fields: ['Email'], message: 'There is already an account with this Email')]
+class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,13 +31,13 @@ class Utilisateur
     #[ORM\Column(length: 255)]
     private ?string $Prenom = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $Rue = null;
 
-    #[ORM\Column(length: 40)]
+    #[ORM\Column(length: 40, nullable: true)]
     private ?string $cp = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $Ville = null;
 
     #[ORM\Column(length: 15)]
@@ -51,6 +55,7 @@ class Utilisateur
     public function __construct()
     {
         $this->demandes = new ArrayCollection();
+        $this->Type = 'client';
     }
 
     public function getId(): ?int
@@ -194,5 +199,29 @@ class Utilisateur
         }
 
         return $this;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->Email;
+    }
+
+    public function getRoles(): array
+    {
+        $role = ['ROLE_USER'];
+        if($this->Type === 'admin'){
+            $role[]='ROLE_ADMIN';
+        }
+        return array_unique($role);
+    }
+
+    public function eraseCredentials(): void
+    {
+        // Nettoie les données sensibles temporaires si besoin
+    }
+
+    public function getPassword(): string
+    {
+        return $this->mdp;
     }
 }
