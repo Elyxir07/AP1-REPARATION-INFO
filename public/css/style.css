@@ -185,6 +185,8 @@
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr) / 10%;
     }
+}
+
 .btn-connexion {
   background-color: #e60000;
   color: #ffffff;
