@@ -30,11 +30,6 @@ class Demande
     #[ORM\Column(length: 300)]
     private ?string $Commentaire = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getIdUtil(): ?Utilisateur
     {
         return $this->IdUtil;
