@@ -2,6 +2,10 @@
 
 Ce site web appartient à la société **REFI** et a été créé par **Comeleon**.
 
+## Screenshots
+
+
+
 ## Démarrage
 
 Ce projet est réalisé en **Symfony** avec les librairies suivantes : **Make**, **Twig** et **ORM**.
