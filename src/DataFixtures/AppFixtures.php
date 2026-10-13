@@ -167,33 +167,29 @@ class AppFixtures extends Fixture
 
         $demande1 = new Demande();
         $demande1->setEtatDemande('en attente');
-        $demande1->setObjet('Installation de postes');
+        $demande1->setObjet('Installation et réseau');
         $demande1->setRaison('Nouveau matériel');
-        $demande1->setCommentaire(
-            'Installation de deux ordinateurs dans les nouveaux bureaux.'
-        );
+        $demande1->setCommentaire('Installation de postes et configuration réseau.');
         $demande1->setIdUtil($utilisateur1);
-        $demande1->setRefPresta($prestation1);
+        // Exemple d'une demande avec PLUSIEURS prestations (ManyToMany)
+        $demande1->addPrestation($prestation1);
+        $demande1->addPrestation($prestation3);
 
         $demande2 = new Demande();
         $demande2->setEtatDemande('acceptee');
         $demande2->setObjet('Maintenance du parc');
         $demande2->setRaison('Maintenance');
-        $demande2->setCommentaire(
-            'Vérification et maintenance des postes informatiques.'
-        );
+        $demande2->setCommentaire('Vérification et maintenance des postes informatiques.');
         $demande2->setIdUtil($utilisateur2);
-        $demande2->setRefPresta($prestation2);
+        $demande2->addPrestation($prestation2);
 
         $demande3 = new Demande();
         $demande3->setEtatDemande('terminee');
-        $demande3->setObjet('Installation réseau');
-        $demande3->setRaison('Nouveau réseau');
-        $demande3->setCommentaire(
-            'Mise en place du réseau dans les nouveaux locaux.'
-        );
+        $demande3->setObjet('Installation informatique simple');
+        $demande3->setRaison('Nouveau matériel');
+        $demande3->setCommentaire('Mise en place de l’ordinateur principal.');
         $demande3->setIdUtil($utilisateur1);
-        $demande3->setRefPresta($prestation3);
+        $demande3->addPrestation($prestation1);
 
         $manager->persist($demande1);
         $manager->persist($demande2);
