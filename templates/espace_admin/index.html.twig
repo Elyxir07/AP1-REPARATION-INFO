@@ -16,6 +16,11 @@
             <h5 class="espace-Client-card-title">Rapport :</h5>
             <p class="espace-Client-card-text">{{ demande.commentaire }}</p>
         </div>
+        <a class="" type="button" href="{{ path('app_modifier_demande', { 
+        'idUtil': demande.idUtil.id, 
+        'refPresta': demande.refPresta.reference }) }}">
+            Modifier
+        </a >
     </div>
     {% endfor %}
     </div>
