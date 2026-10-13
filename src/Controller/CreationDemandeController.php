@@ -30,27 +30,39 @@ final class CreationDemandeController extends AbstractController
         $commentaire = $request->request->get('commentaire');
         // Récupère le tableau des IDs envoyés ([1, 4, 12...])
         $prestationIds = $request->request->all('prestations');
-        $idUtil = $request->request->get('idUtil');
+        $user = $this->getUser();
+        $idUtil = $user -> getId();
 
-        foreach ($prestationIds as $id) {
-            $prestation = $prestationRepository->find($id);
-            if ($prestation) {
-                $demande = new Demande();
-                $demande->setRefPrestaId($id);
-                $demande->setRaison($raison);
-                $demande->setCommentaire($commentaire);
-            }
-        }
+        $demande = new Demande();
+        $demande->setEtatDemande('en attente');
+        $demande->setObjet($objet);
+        $demande->setRaison($raison);
+        $demande->setCommentaire($commentaire);
+        $demande->setIdUtil($idUtil);
 
-        // 4. Préparation de la sauvegarde par Doctrine
+        // Préparation de la sauvegarde par Doctrine
         $entityManager->persist($demande);
 
-        // 5. Exécution de la requête INSERT en BDD
+        // Exécution de la requête INSERT en BDD
+        $entityManager->flush();
+
+        $demandeId = $demande->getId();
+
+        foreach ($prestationIds as $id) {
+            $nvPrestation = new Prestation();
+            $nvPrestation->setDemandeId($demandeId);
+            $nvPrestation->setPrestationReference($id);
+        }
+
+        // Préparation de la sauvegarde par Doctrine
+        $entityManager->persist($nvPrestation);
+
+        // Exécution de la requête INSERT en BDD
         $entityManager->flush();
 
         // 6. Redirection ou message de succès
         $this->addFlash('success', 'Votre demande a bien été enregistrée !');
 
-        return $this->redirectToRoute('app_creation_demande');
+        return $this->redirectToRoute('app_espace_client');
     }
 }
