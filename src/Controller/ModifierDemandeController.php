@@ -14,10 +14,9 @@ use App\Form\ModifDemandeType;
 
 final class ModifierDemandeController extends AbstractController
 {
-    #[Route('/modifier/demande/{idUtil}/{refPresta}', name: 'app_modifier_demande')]
-    public function index(Request $request, int $idUtil, string $refPresta, DemandeRepository $demandeRepository, EntityManagerInterface $entityManager): Response
+    #[Route('/modifier/demande/{id}', name: 'app_modifier_demande')]
+    public function index(Request $request,Demande $demande, DemandeRepository $demandeRepository, EntityManagerInterface $entityManager): Response
     {
-        $demande = $demandeRepository->findOneBy(['IdUtil' => $idUtil,'RefPresta' => $refPresta]);
         $form = $this->createForm(ModifDemandeType::class, $demande);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
