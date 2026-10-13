@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ModifDemandeType extends AbstractType
 {
@@ -19,13 +20,9 @@ class ModifDemandeType extends AbstractType
             ->add('Objet')
             ->add('Raison')
             ->add('Commentaire')
-            ->add('IdUtil', EntityType::class, [
-                'class' => Utilisateur::class,
-                'choice_label' => 'id',
-            ])
-            ->add('RefPresta', EntityType::class, [
-                'class' => Prestation::class,
-                'choice_label' => 'id',
+            ->add('submit', SubmitType::class, [
+                'label' => 'Enregistrer les modifications',
+                'attr' => ['class' => 'btn btn-primary mt-3']
             ])
         ;
     }

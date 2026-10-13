@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la demande{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Modifier la demande n° {{ demande.RefPresta.reference }}</h1>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+        <a href="{{ path('app_espace_admin') }}" class="btn btn-secondary mt-3">Retour à l'espace admin</a>
+    </div>
+{% endblock %}
