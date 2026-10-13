@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Prestation
 {
     #[ORM\Id]
-    #[ORM\Column(name: "Reference",length: 50)]
+    #[ORM\Column(name: "Reference", length: 50)]
     private ?string $Reference = null;
 
     #[ORM\Column(length: 255)]
@@ -24,7 +24,7 @@ class Prestation
     /**
      * @var Collection<int, Demande>
      */
-    #[ORM\OneToMany(targetEntity: Demande::class, mappedBy: 'RefPresta')]
+    #[ORM\ManyToMany(targetEntity: Demande::class, mappedBy: 'prestations')]
     private Collection $demandes;
 
     /**
@@ -87,7 +87,7 @@ class Prestation
     {
         if (!$this->demandes->contains($demande)) {
             $this->demandes->add($demande);
-            $demande->setRefPresta($this);
+            $demande->addPrestation($this);
         }
 
         return $this;
@@ -96,10 +96,7 @@ class Prestation
     public function removeDemande(Demande $demande): static
     {
         if ($this->demandes->removeElement($demande)) {
-            // set the owning side to null (unless already changed)
-            if ($demande->getRefPresta() === $this) {
-                $demande->setRefPresta(null);
-            }
+            $demande->removePrestation($this);
         }
 
         return $this;
@@ -126,7 +123,6 @@ class Prestation
     public function removeUtiliser(Utiliser $utiliser): static
     {
         if ($this->utilisers->removeElement($utiliser)) {
-            // set the owning side to null (unless already changed)
             if ($utiliser->getRefPresta() === $this) {
                 $utiliser->setRefPresta(null);
             }
