@@ -101,4 +101,9 @@ class Demande
 
         return $this;
     }
+
+    public function getIdUtilisateur(): ?Utilisateur
+    {
+        return $this->IdUtil;
+    }
 }
