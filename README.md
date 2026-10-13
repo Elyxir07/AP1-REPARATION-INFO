@@ -6,11 +6,17 @@ Ce site web appartient à la société **REFI** et a été créé par **Comeleon
 
 Ce projet est réalisé en **Symfony** avec les librairies suivantes : **Make**, **Twig** et **ORM**.
 
-Pour comprendre le fonctionnement du projet, je vous invite à aller dans la section [releases](https://github.com/Elyxir07/AP1-REPARATION-INFO/releases) contenant les fichiers essentiels en fichier ZIP.
+Pour comprendre le fonctionnement du projet, je vous invite à aller dans la section [releases](https://github.com/Elyxir07/AP1-REPARATION-INFO/releases) contenant le projet en fichier ZIP.
 
 ## Fonctionnalités
 
-- **Création** de son propre **profil** (thème du site, photo de profil).
+- Les clients sont accueillis par une page vitrine de la marque **REFI**.
+
+- Ils peuvent regarder la **liste des prestations** mais également formuler une **demande** pouvant contenir plusieurs prestations.
+
+- Ils ont accès à un **espace client** afin de consulter leurs dernières demandes effectuées.
+
+- L'administrateur possède son **propre espace** pour la gestion des clients.
 
 ## Déploiement
 
@@ -39,6 +45,12 @@ Le projet est constitué avec la méthode **GitFlow** :
 ## Comment contribuer
 
 Vous pouvez contribuer au projet en **testant les dernières fonctionnalités** ou bien en **proposant des idées d'amélioration** dans la section **Issues**.
+
+Pour exécuter le projet, vous devez démarrer le projet Symfony en utilisant la commande suivante :
+
+`symfony server:start`
+
+puis en important la base de données avec le fichier ``BDD.db` fourni.
 
 ## Crédits / Auteurs
 
