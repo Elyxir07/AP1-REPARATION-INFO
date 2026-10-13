@@ -4,9 +4,9 @@ Ce site web appartient à la société **REFI** et a été créé par **Comeleon
 
 ## Screenshots
 
-![Screenshot Accueil](public/img/screenshots/screenshot1.png)
-![Screenshot Prestations](public/img/screenshots/screenshot2.png)
-![Screenshot Creation Demande](public/img/screenshots/screenshot3.png)
+![Screenshot Accueil](./public/img/screenshots/screenshot1.png)
+![Screenshot Prestations](./public/img/screenshots/screenshot2.png)
+![Screenshot Creation Demande](./public/img/screenshots/screenshot3.png)
 
 ## Démarrage
 
