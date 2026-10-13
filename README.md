@@ -7,6 +7,8 @@ Ce site web appartient à la société **REFI** et a été créé par **Comeleon
 ![Screenshot Accueil](/public/img/readme/screenshot1.png)
 ![Screenshot Prestations](/public/img/readme/screenshot2.png)
 ![Screenshot Creation Demande](/public/img/readme/screenshot3.png)
+![Screenshot Connexion](/public/img/readme/screenshot4.png)
+![Screenshot Inscription](/public/img/readme/screenshot5.png)
 
 ## Démarrage
 
@@ -46,7 +48,7 @@ Le projet est constitué avec la méthode **GitFlow** :
 
 - **Un serveur Symfony**.
 
-- Une base de données auto-hébergée (gestion de deux bases de données distantes).
+- Une **base de données** auto-hébergée (gestion de deux bases de données distantes).
 
 ## Comment contribuer
 
