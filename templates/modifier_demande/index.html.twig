@@ -4,9 +4,9 @@
 
 {% block body %}
     <div class="modif-demande">
-        <h1>Modifier la demande {{ demande.RefPresta.reference }}</h1>
+        <h1>Modifier la demande {{ demande.id }}</h1>
 
-        {{ form_start(form, {'attr': {'class': 'modif-demande-form'}}) }}
+        {{ form_start(form, {'attr': {'class': 'modif-demande-form'} }) }}
             {{ form_widget(form) }}
         {{ form_end(form) }}
 
