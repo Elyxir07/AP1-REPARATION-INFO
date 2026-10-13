@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Espace Client{% endblock %}
+{% block title %}Espace Admin{% endblock %}
 
 {% block body %}
-    <h1 style="text-align: center;">Bienvenue dans votre espace client</h1>
-    <p style="text-align: center;">Vous pouvez gérer vos informations personnelles, suivre vos commandes</p>
+    <h1 style="text-align: center;">Bienvenue dans l'espace admin</h1>
+    <p style="text-align: center;">Vous pouvez gérer toutes les prestation, suivre toute les commandes</p>
 
     <div class="espace-client-grid">
     {% for demande in demandes %}
@@ -16,9 +16,7 @@
             <h5 class="espace-Client-card-title">Rapport :</h5>
             <p class="espace-Client-card-text">{{ demande.commentaire }}</p>
         </div>
-        <a class="" type="button" href="{{ path('app_modifier_demande', { 
-        'idUtil': demande.idUtil.id, 
-        'refPresta': demande.refPresta.reference }) }}">
+        <a class="" type="button" href="{{ path('app_modifier_demande', { 'id': demande.id }) }}">
             Modifier
         </a >
     </div>
