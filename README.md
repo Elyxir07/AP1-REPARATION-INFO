@@ -62,9 +62,11 @@ puis en important la base de données avec le fichier `BDD.db` fourni.
 
 ## Crédits / Auteurs
 
-Elyxir07 - Fontaine Eliot
-Lilian637 - Lilian Coutant
-Theo-chevalier07 - Théo Chevalier
+Elyxir07 : Fontaine Eliot
+
+Lilian637 : Lilian Coutant
+
+Theo-chevalier07 : Théo Chevalier
 
 ## Licence
 
