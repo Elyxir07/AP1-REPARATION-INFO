@@ -46,7 +46,7 @@ Le projet est constitué avec la méthode **GitFlow** :
 
 - **Un serveur Symfony**.
 
-- **API REST** auto-hébergée (gestion de deux bases de données distantes).
+- Une base de données auto-hébergée (gestion de deux bases de données distantes).
 
 ## Comment contribuer
 
