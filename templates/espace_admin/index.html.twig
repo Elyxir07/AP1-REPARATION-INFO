@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Client{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue dans votre espace client</h1>
+    <p>Vous pouvez gérer vos informations personnelles, suivre vos commandes</p>
+    
+    <div class="espace-client-grid">
+    {% for demande in demandes %}
+    <div class="espace-Client-card" style= "border: 4px solid {% if demande.etatdemande == 'terminee' %}#48ff00 {% endif %} {% if demande.etatdemande == 'en attente' %}#F5C827 {% endif %} {% if demande.etatdemande == 'refuse' %}#ff0000 {% endif %} {% if demande.etatdemande == 'acceptee' %}#0097FF {% endif %};">
+        <div class="espace-Client-card-body">
+            <h5 class="espace-Client-card-title">{{ demande.objet }}</h5>
+            <p class="espace-Client-card-text">{{ demande.raison }}</p>
+
+            <h5 class="espace-Client-card-title">Rapport :</h5>
+            <p class="espace-Client-card-text">{{ demande.commentaire }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+{% endblock %}
