@@ -4,6 +4,13 @@
     flex-direction: row;
     align-items: baseline;
 }
+.espace-client-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(250px, 33%));
+    grid-auto-rows: auto;
+    gap: 20px;
+    padding: 20px;
+}
 
 .nav-red
 {
@@ -141,6 +148,29 @@
     text-align: center;
 }
 
+.espace-Client-card {
+    
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #dcdbdb;
+    border-radius: 50px;
+}
+
+.espace-Client-card-body {
+    padding: 10px;
+}
+
+.espace-Client-card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.espace-Client-card-text {
+    font-size: 1em;
+    color: #666;
+}
+
 .btn-connexion {
   background-color: #e60000;
   color: #ffffff;
@@ -271,3 +301,94 @@
     .auth-tabs a{ padding:9px 14px; font-size:13px; }
 }
 
+
+.modif-demande {
+    width: 100%;
+    max-width: 500px;
+    margin-inline: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 30px;
+    background: #ffffff;
+    border: 1.5px solid #e2e2e2;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: grid;
+    gap: 22px;
+}
+
+.modif-demande h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin: 0;
+    text-align: center;
+}
+
+.modif-demande-form {
+    display: grid;
+    gap: 14px;
+}
+
+.modif-demande-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #5c5c5c;
+    margin-bottom: 4px;
+}
+
+.modif-demande-form input,
+.modif-demande-form textarea,
+.modif-demande-form select {
+    background: #ffffff;
+    color: #0a0a0a;
+    border: 1.5px solid #d6d6d6;
+    border-radius: 10px;
+    padding: 13px 15px;
+    font-size: 15px;
+    width: 100%;
+    min-width: 0;
+}
+
+.modif-demande-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.modif-demande-form button[type="submit"] {
+    width: 100%;
+    background: #e30613;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    min-height: 48px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.modif-demande-form button[type="submit"]:hover {
+    background: #a6020c;
+}
+
+.modif-demande-form button[type="submit"]:active {
+    background: #8d0109;
+}
+
+.retour-link {
+    display: block;
+    text-align: center;
+    color: #5c5c5c;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.retour-link:hover {
+    color: #0a0a0a;
+    text-decoration: underline;
+}
