@@ -272,6 +272,12 @@
     color:#5c5c5c;
 }
 
+.auth-switch a.actually{
+    color:#f4f4f4;
+    background-color: #e30613;
+}
+
+
 .auth-form{
     display: grid;
     gap:14px;
@@ -336,6 +342,8 @@
 }
 .btn-rouge:hover{ background:#a6020c; color:#ffffff; }
 .btn-rouge:active{ background:#8d0109; }
+
+
 
 @media (min-width:600px){
     .auth-box{ gap:26px; }
