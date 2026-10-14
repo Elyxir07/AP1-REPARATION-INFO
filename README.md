@@ -56,15 +56,29 @@ Le projet est constitué avec la méthode **GitFlow** :
 
 Vous pouvez contribuer au projet en **testant les dernières fonctionnalités** ou bien en **proposant des idées d'amélioration** dans la section **Issues**.
 
-Pour exécuter le projet, vous devez démarrer le projet Symfony en utilisant la commande suivante :
+Vérifiez que vous possédez les **bundles** requis : Make, Twig et ORM.
+
+Pour exécuter le projet, rendez-vous à la raine du projet puis démarrez le projet Symfony en utilisant la commande suivante :
 
 `symfony server:start`
 
+Vérifiez la variable **DATABASE_URL** dans vote .env afin de vous **relier** correctement à votre base de données !
+
 Puis en important la base de données avec :
 
-`doctrine:database:create`
+`php bin/console doctrine:database:create`
 
-`doctrine:migrations:migrate`
+`php bin/console doctrine:migrations:migrate`
+
+Voici la commande pour essayer avec un jeu de tests :
+
+`php bin/console doctrine:fixtures:load`
+
+Voici les différents identifiants utilisés :
+
+Compte Client : nom_du_client@example.com, password123
+
+Compte Administrateur : admin@example.com, admin123
 
 ## Crédits / Auteurs
 
